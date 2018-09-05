@@ -29,9 +29,10 @@ if __name__ == "__main__":
         try:
             print(file_list[i])
             file_name = re.search("COURSE.*(X|x)(L|l)(S|s)", file_list[i]).group(0)
-            print(file_name)
+            print("Downloading " + file_name + "...")
             ftp.retrbinary("RETR " + file_name, open(SAVE_FILE_LOCATION + file_name, "wb").write)
         except AttributeError:
             continue
     ftp.close()
 
+# https://shades-of-orange.com/post/How-to-Convert-an-XSLX-File-to-CSV-with-UTF-8-Encoding-Using-LibreOffice-OpenOffice
